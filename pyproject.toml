@@ -1,0 +1,68 @@
+[project]
+name = "interpol"
+version = "0.1.0"
+description = "project intepolations"
+authors = [
+    {name = "Lev",email = "bazarov2004@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "matplotlib (>=3.5.0,<3.10.0)",
+    "numpy (==1.21.0)",
+    "click (>=8.1.8,<9.0.0)"
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.7"
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+interpol-cli = "interpol.cli:main"
+
+[tool.ruff]
+line-length = 120
+select = ["ALL"]
+ignore = [
+    "D203",  # Игнорируем конфликт one-blank-line-before-class
+    "D212",  # Игнорируем конфликт multi-line-summary-first-line
+    "RET504",  # Необязательное предупреждение о return
+    "EM101",  # Разрешаем строковые литералы в исключениях
+    "TRY200",  # Необязательное raise from
+    "RUF002",  # Разрешаем кириллические символы
+    "ANN001", # Разрешаем не объявлять типы
+    "ANN201", # same as previous
+    "D100", # я разрешаю докстринг
+    "D103",
+    "D104",
+    "TRY003", # я разрешаю длинные вещи
+    "B904" # я разрешаю except
+]
+fixable = ["ALL"]
+unfixable = []
+
+# Форматирование (аналог black)
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+# Правила для конкретных файлов
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]  # Неиспользуемые импорты в __init__.py разрешены
+"tests/*.py" = [
+  "S101",  # assert в тестах
+  "INP001" # Неявные пространства имен в тестах
+]
+
+#Tests
+[tool.pytest.ini_options]
+addopts = "--cov=interpol --cov-report=term-missing"
+testpaths = ["tests"]

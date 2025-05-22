@@ -10,9 +10,12 @@
 git clone https://github.com/bazevv/interpol.git
 cd interpol
 pip install .
+```
 
 ## Быстрый запуск
+```
 python -m innterpol.cli -x 0,1,2 -y 0,1,4 --method lagrange --step 0.1
+```
 
 ## Методы интерполяции
 
@@ -45,15 +48,19 @@ $$
 
 ## Тестирование
 
+```
 nox -s tests
+```
 
 ## Документация 
 
 Документация находится в папке docs/
 Для локального просмотра:
 
+```
 cd docs
 make html
+```
 
 После этого просто открыть файл index.html в браузере
 

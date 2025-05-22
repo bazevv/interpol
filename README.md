@@ -64,3 +64,4 @@ make html
 
 После этого просто открыть файл index.html в браузере
 
+Или по ссылке https://bazevv.github.io/interpol/

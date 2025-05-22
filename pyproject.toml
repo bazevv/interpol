@@ -1,20 +1,16 @@
-[project]
+[tool.poetry]
 name = "interpol"
 version = "0.1.0"
 description = "project intepolations"
-authors = [
-    {name = "Lev",email = "bazarov2004@gmail.com"}
-]
+authors = ["Lev"]
 readme = "README.md"
-requires-python = ">=3.9"
-dependencies = [
-    "matplotlib (>=3.5.0,<3.10.0)",
-    "numpy (==1.21.0)",
-    "click (>=8.1.8,<9.0.0)"
-]
+packages = [{include = "interpol"}]
 
-[tool.poetry]
-package-mode = false
+[tool.poetry.dependencies]
+python = ">=3.9"
+matplotlib = ">=3.5.0,<3.10.0"
+numpy = "==1.21.0"
+click = ">=8.1.8,<9.0.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.7"
@@ -32,13 +28,13 @@ interpol-cli = "interpol.cli:main"
 line-length = 120
 select = ["ALL"]
 ignore = [
-    "D203",  # Игнорируем конфликт one-blank-line-before-class
-    "D212",  # Игнорируем конфликт multi-line-summary-first-line
-    "RET504",  # Необязательное предупреждение о return
-    "EM101",  # Разрешаем строковые литералы в исключениях
-    "TRY200",  # Необязательное raise from
-    "RUF002",  # Разрешаем кириллические символы
-    "ANN001", # Разрешаем не объявлять типы
+    "D203",  # игнорируем конфликт one-blank-line-before-class
+    "D212",  # игнорируем конфликт multi-line-summary-first-line
+    "RET504",  # необязательное предупреждение о return
+    "EM101",  # разрешаем строковые литералы в исключениях
+    "TRY200",  # необязательное raise from
+    "RUF002",  # разрешаем кириллические символы
+    "ANN001", # разрешаем не объявлять типы
     "ANN201", # same as previous
     "D100", # я разрешаю докстринг
     "D103",
